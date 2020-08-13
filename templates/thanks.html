@@ -4,5 +4,11 @@
 
 {%block content%}
 <h1>Ey thanks there bud! Survey was a doosie, but glad you didn't give up on us!</h1>
-<p>Responses Array: {{RESPONSES}}</p>
+<hr>
+<h2>Your Responses in order:</h2>
+    <ol>
+    {% for response in session["responses"] %}
+        <li>{{response}}</li>
+    {% endfor %}
+    </ol>
 {% endblock %}

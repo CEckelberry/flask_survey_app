@@ -7,15 +7,16 @@
 {% for msg in get_flashed_messages() %}
     <h3>{{msg}}</h3>
 {% endfor %}
-
-<h1>{{question.question}}</h1>
-<form action="/answer" method="POST">
+<h1>{{title}}</h1>
+<hr>
+<h2>{{question.question}}</h2>
+<form action="/answer" method="POST" class="form">
     {% for choice in question.choices %}
     <p><input type="radio" name="answer" value="{{choice}}">{{choice}}</p>
     {% endfor %}
     <button>Next Question</button>
 </form>
 
-<p>Current QID: {{qid}}</p>
-<p>Current URL: {{current_url}}</p>
+<!-- <p>Current QID: {{qid}}</p>
+<p>Current URL: {{current_url}}</p> -->
 {% endblock %}

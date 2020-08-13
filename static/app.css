@@ -1,0 +1,59 @@
+H1,
+H2 {
+	font-family: 'Roboto Slab', serif;
+	margin-left: 3rem;
+}
+
+p {
+	font-family: 'Roboto Slab', serif;
+}
+
+.form {
+	font-family: 'Roboto Slab', serif;
+	margin-left: 3rem;
+}
+
+body {
+	margin-top: 3rem;
+	margin-left: 3rem;
+	background-color: rgb(161, 134, 158);
+}
+
+button {
+	margin-top: 1rem;
+	margin-left: 5rem;
+	background-color: rgb(121, 117, 150);
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+
+hr {
+	color: rgb(11, 29, 81);
+}
+
+li {
+	font-family: 'Roboto Slab', serif;
+	color: rgb(78, 72, 72);
+	font-size: 22px;
+	margin-left: 2rem;
+	padding: 1.25rem;
+}
+
+ol {
+	margin-top: 1rem;
+	margin-left: 30rem;
+	display: inline-block;
+	border: 6px solid rgb(54, 54, 54);
+	padding: 20px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+ol:hover {
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}

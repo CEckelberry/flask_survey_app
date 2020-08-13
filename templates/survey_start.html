@@ -4,8 +4,8 @@
 
 {%block content%}
 <h1>Welcome to the {{title}}</h1>
-<h2>The survey instructions are as follows: {{instructions}}</h2>
-<form action="/questions/{{qid}}" method="POST">
-    <button>Start Survey</button>
+<h2>Instructions: {{instructions}}</h2>
+<form action="/sessionview" method="POST">
+    <button>Start Survey</button> 
 </form>
 {% endblock %}
