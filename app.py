@@ -12,8 +12,6 @@ from random import randint, choice, sample
 # from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey as survey
 
-RESPONSES = []
-
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "chickenzarecooll21837"
 
@@ -23,6 +21,9 @@ app.config["SECRET_KEY"] = "chickenzarecooll21837"
 
 @app.route("/")
 def survey_start():
+    """
+    Start page pulls title and instructions from surveys file
+    """
     qid = 0
     title = survey.title
     instructions = survey.instructions
@@ -33,6 +34,12 @@ def survey_start():
 
 @app.route("/questions/<int:qid>", methods=["POST", "GET"])
 def show_question(qid):
+    """
+    Main function throughout survey app. Sets up a session with a responses variable.
+    Creates a variable (QID) that tracks what the current questions ID SHOULD be!
+    If people try and access things out of order, they will receive a naughty flash message
+    pulls the question from survey.question 
+    """
     title = survey.title
     responses = session["responses"]
     qid = len(responses)
@@ -54,6 +61,9 @@ def show_question(qid):
 
 @app.route("/sessionview", methods=["POST"])
 def verify_session():
+    """
+    This route is used right after the survey start to initiate a session and sets the Response variable to a blank list
+    """
     session["responses"] = []
     qid = len(session["responses"])
     return redirect(f"/questions/{qid}")
@@ -61,6 +71,9 @@ def verify_session():
 
 @app.route("/answer", methods=["POST"])
 def pass_answer():
+    """
+    This route stores the answer to each question submitted. You have to re-bind the responses variable each time to make sure we are in the current session. 
+    """
     qid = len(session["responses"])
     response = request.form["answer"]
     responses = session["responses"]
@@ -72,4 +85,7 @@ def pass_answer():
 
 @app.route("/thanks")
 def show_thanks():
-    return render_template("thanks.html", RESPONSES=RESPONSES)
+    """
+    Renders the thank you page for taking the survey. 
+    """
+    return render_template("thanks.html")
